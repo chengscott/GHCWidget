@@ -1,25 +1,20 @@
 package by.aleks.ghcwidget.api;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.net.CookieStore;
-import java.util.HashSet;
-import java.util.Set;
 
 import android.webkit.CookieManager;
+
 import by.aleks.ghcwidget.R;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.protocol.ClientContext;
-import org.apache.http.cookie.Cookie;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.cookie.BasicClientCookie;
@@ -54,7 +49,7 @@ public class GitHubHelper {
      */
     protected static synchronized String downloadFromServer(String username, Context context)
             throws ApiException {
-        String retval = null;
+        String retval;
         String url = "https://github.com/users/" + username + "/contributions";
 
         Log.d(logTag, "Fetching " + url);
@@ -65,7 +60,7 @@ public class GitHubHelper {
 
         // load and attach cookies
         String cookies = CookieManager.getInstance().getCookie(context.getString(R.string.login_url));
-        if(cookies != null){
+        if (cookies != null) {
             BasicCookieStore lCS = getCookieStore(cookies, context.getString(R.string.domain));
 
             HttpContext localContext = new BasicHttpContext();
@@ -90,7 +85,7 @@ public class GitHubHelper {
             InputStream ist = entity.getContent();
             ByteArrayOutputStream content = new ByteArrayOutputStream();
 
-            int readCount = 0;
+            int readCount;
             while ((readCount = ist.read(buff)) != -1) {
                 content.write(buff, 0, readCount);
             }

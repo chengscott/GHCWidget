@@ -5,4 +5,8 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="widgetText" parent="android:TextAppearance.Large">
+        <item name="android:textColor">@color/background_material_dark</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+    </style>
 </resources>

@@ -1,18 +1,22 @@
 <resources>
     <string name="app_name">GHCWidget</string>
+    <!--login-->
     <string name="login_to_github">Log in to GitHub</string>
-
     <string name="login_url">https://github.com/login</string>
     <string name="domain">github.com</string>
-
+    <!--preferences-->
     <string name="username_pref_title">Username</string>
     <string name="username_pref_summary">Set your GitHub username</string>
     <string name="username_pref_dialog">GitHub username</string>
-
     <string name="color_pref_title">Color theme</string>
     <string name="months_pref_title">Number of months to display</string>
+    <string name="start_on_monday_pref_title">Start week on Monday</string>
+    <string name="days_labels_pref_title">Show days of week</string>
+    <string name="login_pref_title">Log in (to see private contributions)</string>
+    <string name="logout_pref_title">Log out</string>
     <string name="transparency_pref_title">Transparency</string>
-
+    <!--widget-->
+    <string name="loading">Loading...</string>
     <string name="loading_error">Loading failed</string>
     <string name="not_found">Username not found</string>
     <string name="day">day</string>

@@ -6,7 +6,7 @@ This simple widget shows your contribution activity over a chosen amount of time
 
 <a href="https://play.google.com/store/apps/details?id=by.aleks.ghcwidget">
   <img alt="Get it on Google Play"
-       src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
+       src="//play.google.com/intl/en_us/badges/images/apps/en-play-badge.png" width="185">
 </a>
 
 ### Screenshots

@@ -1,9 +1,11 @@
 package by.aleks.ghcwidget.api;
 
 import android.content.Context;
+
 import by.aleks.ghcwidget.Widget;
 import by.aleks.ghcwidget.data.CommitsBase;
 import by.aleks.ghcwidget.data.Day;
+
 import org.xmlpull.v1.XmlPullParser;
 
 import java.io.StringReader;
@@ -13,6 +15,7 @@ import java.util.concurrent.ExecutionException;
 
 import android.os.AsyncTask;
 import android.util.Log;
+
 import org.xmlpull.v1.XmlPullParserFactory;
 
 
@@ -22,7 +25,6 @@ public class GitHubAPITask extends AsyncTask<String, Integer, String> // Usernam
     private static final String debugTag = "GHCWiget";
     private Widget widget;
     private Context context;
-    private static CommitsBase base = null;
 
     public GitHubAPITask(Widget widget, Context context) {
         this.widget = widget;
@@ -33,7 +35,7 @@ public class GitHubAPITask extends AsyncTask<String, Integer, String> // Usernam
     // Call the downloading method in background and load data
     @Override
     protected String doInBackground(String... params) {
-        String result = null;
+        String result;
         try {
             Log.d(debugTag, "Background:" + Thread.currentThread().getName());
             result = GitHubHelper.downloadFromServer(params[0], context);
@@ -53,7 +55,7 @@ public class GitHubAPITask extends AsyncTask<String, Integer, String> // Usernam
 
     public static CommitsBase parseResult(final String result) throws ExecutionException, InterruptedException {
 
-        AsyncTask<Void, Void, CommitsBase> task =  new AsyncTask<Void, Void, CommitsBase>(){
+        AsyncTask<Void, Void, CommitsBase> task = new AsyncTask<Void, Void, CommitsBase>() {
 
             @Override
             protected CommitsBase doInBackground(Void... params) {
